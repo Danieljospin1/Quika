@@ -1,6 +1,7 @@
 
 import { Router } from "express";
 import { pool } from "../config/database.js";
+import authRoutes from "./auth.routes.js";
 
 const router = Router();
 
@@ -17,5 +18,8 @@ router.get("/health", async (req, res, next) => {
     next(error);
   }
 });
+
+router.use("/auth", authRoutes);
+
 
 export default router;
